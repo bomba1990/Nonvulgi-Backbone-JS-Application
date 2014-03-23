@@ -1,0 +1,44 @@
+#header_logo{margin-left: auto; margin-right:auto;}
+#item-rss div.ui-body div {text-align:center;}
+#twitter_list h4{white-space:normal}
+.feed-items{text-align:center; margin-bottom: 20px;}
+.gallery { list-style: none; padding: 0; margin: 0; }
+.gallery:after { clear: both; content: "."; display: block; height: 0; visibility: hidden; }
+.gallery li { float: left; width: 33.33333333%; }
+.gallery li a { display: block; margin: 5px; border: 1px solid #3c3c3c; }
+.gallery li img { display: block; width: 100%; height: auto; }
+#galeria .ui-content, #Gallery2 .ui-content { overflow: hidden; }
+#contactenos >div{text-align: center;}
+@keyframes vuelta
+{
+from {transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);}
+to {transform: rotate(360deg);-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-o-transform: rotate(360deg);}
+}
+@-moz-keyframes vuelta
+{
+from {transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);}
+to {transform: rotate(360deg);-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-o-transform: rotate(360deg);}
+}
+
+@-webkit-keyframes vuelta
+{
+from {transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);}
+to {transform: rotate(360deg);-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-o-transform: rotate(360deg);}
+}
+
+@-o-keyframes vuelta
+{
+from {transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);}
+to {transform: rotate(360deg);-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-o-transform: rotate(360deg);}
+}
+.ui-dialog a[data-icon=delete]{display:none;}
+.ui-icon-loading {
+	animation: vuelta 2s;
+	animation-iteration-count:infinite;
+	-webkit-animation: vuelta 2s;
+	-webkit-animation-iteration-count:infinite;
+	-moz-animation: vuelta 2s;
+	-moz-animation-iteration-count:infinite;
+	-o-animation: vuelta 2s;
+	-o-animation-iteration-count:infinite;
+}

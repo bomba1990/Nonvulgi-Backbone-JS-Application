@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.1.0.0" id="Non Vulgi">
+
+  <author href="http://www.example.com/" 
+          rim:copyright="Copyright 1998-2012 Non Vulgi C. A">Non Vulgi</author>
+
+  <name>Non Vulgi</name>
+
+  <description>
+    Non Vulgi - Agencia Digital Creativa, Consultoria en Inteligencia Digital, generacion de contenido, redes sociales, posicionamiento en buscadores, marketing digital, produccion de videos para internet, desarrollo tecnoligico para empresas.
+  </description>
+
+  <rim:permissions>
+    <rim:permit>read_geolocation</rim:permit>
+  </rim:permissions>
+  <icon src="img/logo-non-vulgi-114.png"/>
+
+  <content src="index.html" rim:allowInvokeParams="true"/>
+<access uri="http://ajax.googleapis.com" subdomains="false" />
+<access uri="http://search.twitter.com" subdomains="false" />
+  <access uri="http://nonvulgi.com" subdomains="true">
+    <feature id="blackberry.app.event" required="true" version="1.0.0"/>
+    <feature id="blackberry.invoke" required="true" version="1.0.0"/>
+  </access>
+
+  <license href="http://nonvulgi.com/"/>
+
+</widget>

